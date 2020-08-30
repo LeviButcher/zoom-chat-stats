@@ -1,0 +1,13 @@
+GOAL: Perform analysis of zoom chat.
+
+Main Feature: Take in Zoom chat and display in a table the amount of questions ask by student in groups of first name
+[A-F, G-M, N-S, T-Z]
+
+Step 1: Write Test Suite to get the stats I want. i.e
+
+Things to write:
+    Transform line string into Comment Object
+        {name, comment}
+    Reduce Comment Objects to Comment Count Groups, i.e how many comments in group [A-F, G-M, N-S, T-Z]
+
+    Display file upload input and take chat log in then display stats on chat log
