@@ -1,4 +1,4 @@
-interface CommentRecord {
+export interface CommentRecord {
   name: string;
   comment: string;
 }

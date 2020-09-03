@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { parseCommentLine } from "./utils/CommentParser";
 import styled from "styled-components";
+import { commentGroupCount } from "./utils/CommentAnalysis";
 
 const Main = styled.main`
   max-width: 960px;
@@ -60,13 +61,7 @@ function App() {
 }
 
 const DisplayStats = ({ commentData }) => {
-  const letterGroups = ["A-F", "G-M", "N-S", "T-Z"];
-
-  const res = letterGroups.map((x) => ({
-    group: x,
-    count: commentData.map((c) => c.name).filter(nameMatchesLetterGroup(x))
-      .length,
-  }));
+  const res = commentGroupCount(commentData);
 
   return <GroupTable groupStats={res} />;
 };
@@ -100,10 +95,5 @@ const CommentRecords = ({ commentData }) => (
     ))}
   </div>
 );
-
-const nameMatchesLetterGroup = (letterGroup) => (name) => {
-  const res = name.match(new RegExp(`^[${letterGroup}]`));
-  return res !== null ? res.length : false;
-};
 
 export default App;
