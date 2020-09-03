@@ -4,9 +4,9 @@ interface CommentRecord {
 }
 
 export function parseCommentLine(rawString: string): CommentRecord | null {
-  const nameRegex = /(?<=\t)(.*)(?=:\t)/g;
+  const nameRegex = /(?<=From\s\s)(.*)(?=\s:)/g;
   const name = rawString.match(nameRegex)?.join();
-  const commentRegex = /(?<=:\t)(.*)/g;
+  const commentRegex = /(?<=\s:\s)(.*)/g;
   const comment = rawString.match(commentRegex)?.join();
   console.log(name);
   console.log(comment);

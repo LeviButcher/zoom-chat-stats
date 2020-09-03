@@ -1,11 +1,11 @@
 import { parseCommentLine } from "./CommentParser";
 
 it("parseCommentLine works with expected formatted string", () => {
-  const testString = "00:13:05\tEthan Weaver:\tYes!";
+  const testString = "09:31:09	 From  Kryzstof Kudlak : good morning";
   const commentRecord = parseCommentLine(testString);
   expect(commentRecord).toMatchObject({
-    name: "Ethan Weaver",
-    comment: "Yes!",
+    name: "Kryzstof Kudlak",
+    comment: "good morning",
   });
 });
 
